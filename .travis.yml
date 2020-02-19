@@ -20,7 +20,7 @@ before_install:
 #    - docker build -t $DOCKER_FULL_IMAGE_NAME .
 script:
     - export DOCKER_FULL_IMAGE_NAME=$AZURE_ACR_NAME.azurecr.io/$DOCKER_IMAGE_NAME:$TRAVIS_COMMIT
-    - docker build -t DOCKER_FULL_IMAGE_NAME .
+    - docker build -t $DOCKER_FULL_IMAGE_NAME .
 
 deploy:
   provider: script
