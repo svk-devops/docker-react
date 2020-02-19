@@ -4,7 +4,7 @@
 az login --service-principal --username $AZURE_SP_USERNAME --password $AZURE_SP_PASSWORD --tenant $AZURE_SP_TENANT
 
 # Docker log into Azure Container Registry
-az acr login --name $ACR_NAME
+az acr login --name $AZURE_ACR_NAME
 
 # Push container Azure Container Registry
 docker push $AZURE_ACR_NAME.azurecr.io/$DOCKER_IMAGE_NAME:$TRAVIS_COMMIT
@@ -14,4 +14,4 @@ AZURE_ACR_PASSWORD=`az acr credential show --name $AZURE_ACR_NAME | jq -r '.pass
 AZURE_ACR_USERNAME=`az acr credential show --name $AZURE_ACR_NAME | jq -r '.username'`
 
 # Deploy the container to Azure Web App
-az webapp config container set --docker-custom-image-name $AZURE_ACR_NAME.azurecr.io/$DOCKER_IMAGE_NAME:$TRAVIS_COMMIT --docker-registry-server-password $AZURE_ACR_PASSWORD --docker-registry-server-url https://$AZURE_ACR_NAME.azurecr.io --docker-registry-server-user $AZURE_ACR_USERNAME --name $AZURE_WEBAPP_NAME --resource-group $AZURE_WEBAPP_RESOURCE_GROUP
+az webapp config container set --docker-custom-image-name $AZURE_ACR_NAME.azurecr.io/$DOCKER_IMAGE_NAME:$TRAVIS_COMMIT --docker-registry-server-password $AZURE_ACR_PASSWORD --docker-registry-server-url https://$AZURE_ACR_USERNAME.azurecr.io --docker-registry-server-user $AZURE_ACR_USERNAME --name $AZURE_WEBAPP_NAME --resource-group $AZURE_WEBAPP_RESOURCE_GROUP
