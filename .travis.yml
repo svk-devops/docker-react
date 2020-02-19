@@ -15,8 +15,12 @@ before_install:
 - sudo apt-get install apt-transport-https
 - sudo apt-get update && sudo apt-get install azure-cli
 
+#install:
+#    - export DOCKER_FULL_IMAGE_NAME=$AZURE_ACR_NAME.azurecr.io/$DOCKER_IMAGE_NAME:$TRAVIS_COMMIT
+#    - docker build -t $DOCKER_FULL_IMAGE_NAME .
 script:
-    - docker build -t $DOCKER_IMAGE_NAME:$TRAVIS_COMMIT .
+    - export DOCKER_FULL_IMAGE_NAME=$AZURE_ACR_NAME.azurecr.io/$DOCKER_IMAGE_NAME:$TRAVIS_COMMIT
+    - docker build -t DOCKER_FULL_IMAGE_NAME .
 
 deploy:
   provider: script
