@@ -1,0 +1,9 @@
+az role assignment create \
+  --assignee c49823c6-470e-45b0-b21e-4add5115ed5d \
+  --role Contributor \
+  --scope /subscriptions/c80eb516-ac45-4df1-ae1f-c8c17bf10a72/resourceGroups/tst-dockerreact-rg/providers/Microsoft.ContainerRegistry/registries/tstdockerreactsvkacr
+
+az role assignment create \
+  --assignee c49823c6-470e-45b0-b21e-4add5115ed5d \
+  --role Contributor \
+  --scope /subscriptions/c80eb516-ac45-4df1-ae1f-c8c17bf10a72/resourceGroups/tst-dockerreact-rg/providers/Microsoft.Web/sites/tst-dockerreact-svk-wa

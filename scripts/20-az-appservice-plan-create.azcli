@@ -1,0 +1,4 @@
+az appservice plan create \
+  --name tst-dockerreact-asp \
+  --resource-group tst-dockerreact-rg \
+  --sku B1

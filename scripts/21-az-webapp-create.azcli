@@ -1,0 +1,5 @@
+az webapp create \
+  --resource-group tst-dockerreact-rg \
+  --name tst-dockerreact-svk-wa \
+  --deployment-container-image-name nginx \
+  --plan tst-dockerreact-asp

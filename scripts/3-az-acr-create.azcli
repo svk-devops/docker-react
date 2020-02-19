@@ -1,0 +1,6 @@
+az acr create \
+  --resource-group tst-dockerreact-rg \
+  --name tstdockerreactsvkacr \
+  --admin-enabled \
+  --location "West Europe" \
+  --sku Basic

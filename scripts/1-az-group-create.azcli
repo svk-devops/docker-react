@@ -1,0 +1,4 @@
+az group create \
+  --name tst-dockerreact-rg \
+  --location "West Europe"
+  
